@@ -183,7 +183,7 @@ const Home: FC = () => {
         maxWidth='sm'
         open={viewUserDialog}
       >
-        <DialogTitle>New User</DialogTitle>
+        <DialogTitle>View User</DialogTitle>
 
         <DialogContent>
           <Box marginBottom={1}>

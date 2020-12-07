@@ -1,11 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-export interface User {
-  authenticated: boolean,
-  accessToken: string,
-  refreshToken: string,
-};
-
 const authContext = createContext<any>({});
 
 export const ProvideAuth = ({ children }: any) => {
@@ -14,7 +8,7 @@ export const ProvideAuth = ({ children }: any) => {
 }
 
 export const useAuth = (): {
-  user: User | undefined;
+  authenticated: boolean;
   login: (username: string, password: string) => Promise<boolean | void>;
   logout: () => Promise<boolean | void>;
 } => {
@@ -22,7 +16,7 @@ export const useAuth = (): {
 }
 
 function useProvideAuth() {
-  const [user, setUser] = useState<User | undefined>(undefined);
+  const [authenticated, setAuthenticated] = useState<boolean>(false);
 
   const login = async (username: string, password: string) => {
     return await (fetch("/login", {
@@ -37,7 +31,7 @@ function useProvideAuth() {
         if (data.accessToken && data.refreshToken) {
           localStorage.setItem('accessToken', data.accessToken);
           localStorage.setItem('refreshToken', data.refreshToken);
-          setUser({ authenticated: true, accessToken: data.accessToken, refreshToken: data.refreshToken });
+          setAuthenticated(true);
           return true;
         } else {
           return false;
@@ -50,8 +44,11 @@ function useProvideAuth() {
   };
 
   const logout = async () => {
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
+
     return await (fetch("/logout", {
-      body: JSON.stringify({ accessToken: user?.accessToken, refreshToken: user?.refreshToken }),
+      body: JSON.stringify({ accessToken, refreshToken }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -60,7 +57,7 @@ function useProvideAuth() {
       .then(resp => resp.json())
       .then(data => {
         if (data.success) {
-          setUser(undefined);
+          setAuthenticated(false);
           localStorage.clear(); // Or clear only the tokens if there are other non-sensitive cached stuff
           return true;
         }
@@ -78,18 +75,14 @@ function useProvideAuth() {
     const refreshToken = localStorage.getItem('refreshToken');
 
     if (accessToken && refreshToken) {
-      setUser({
-        authenticated: true,
-        accessToken,
-        refreshToken,
-      });
+      setAuthenticated(true);
     } else {
-      setUser(undefined);
+      setAuthenticated(false);
     }
   }, []);
 
   return {
-    user,
+    authenticated,
     login,
     logout,
   };

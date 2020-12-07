@@ -9,7 +9,7 @@ const PrivateRoute: FC<RouteProps> = ({ children, ...props }) => {
     <Route
       {...props}
       render={
-        ({ location }) => auth.user?.accessToken && auth.user.refreshToken ?
+        ({ location }) => auth.authenticated ?
           children : <Redirect to={{ pathname: "/login", state: { from: location } }} />
       }
     />

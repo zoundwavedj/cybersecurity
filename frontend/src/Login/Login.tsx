@@ -37,7 +37,7 @@ const Login: FC = () => {
 
   // THIS IS SUPER HACKY OOPS
   // Wait for hook's side effect to finish before attemping to render route :)
-  if (auth.user?.accessToken && auth.user.refreshToken) {
+  if (auth.authenticated) {
     return <Redirect to={location.state as string} />
   }
 
