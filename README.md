@@ -16,7 +16,12 @@
 
 ### Backend
 
-- Download the binary from the releases page and simply run it
+- Download the binary from the releases page
+- Ensure you have these env vars exported
+> "SUPERUSERNAME": `<string>`,
+> "ACCESS_SECRET": `<string>`,
+> "REFRESH_SECRET": `<string>`,
+> "ENCRYPT_KEY": `<32bytes string in hex format (64 chars)>`
 - If you opt to build/run it yourself
 - Clone the repository
 - Ensure you have `gcc` installed (via `build-essentials` on mac, `MSYS2` on windows)
