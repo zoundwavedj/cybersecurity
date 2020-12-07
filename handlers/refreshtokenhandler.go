@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/rs/zerolog/log"
-	"github.com/zoundwave/cybersecurity/configs"
-	"github.com/zoundwave/cybersecurity/database"
+	"github.com/zoundwavedj/cybersecurity/configs"
+	"github.com/zoundwavedj/cybersecurity/database"
 )
 
 type refreshTokenReq struct {

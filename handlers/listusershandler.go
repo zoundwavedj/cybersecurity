@@ -5,7 +5,7 @@ import (
 	"net/http"
 
 	"github.com/rs/zerolog/log"
-	"github.com/zoundwave/cybersecurity/database"
+	"github.com/zoundwavedj/cybersecurity/database"
 )
 
 type listUsersResp struct {

@@ -6,8 +6,8 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/rs/zerolog/log"
-	"github.com/zoundwave/cybersecurity/configs"
-	"github.com/zoundwave/cybersecurity/database"
+	"github.com/zoundwavedj/cybersecurity/configs"
+	"github.com/zoundwavedj/cybersecurity/database"
 )
 
 type userLogoutReq struct {

@@ -10,9 +10,9 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
-	"github.com/zoundwave/cybersecurity/database"
-	"github.com/zoundwave/cybersecurity/handlers"
-	"github.com/zoundwave/cybersecurity/middlewares"
+	"github.com/zoundwavedj/cybersecurity/database"
+	"github.com/zoundwavedj/cybersecurity/handlers"
+	"github.com/zoundwavedj/cybersecurity/middlewares"
 )
 
 func main() {

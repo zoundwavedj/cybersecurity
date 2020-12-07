@@ -5,8 +5,8 @@ import (
 	"net/http"
 
 	"github.com/rs/zerolog/log"
-	"github.com/zoundwave/cybersecurity/database"
-	"github.com/zoundwave/cybersecurity/utils"
+	"github.com/zoundwavedj/cybersecurity/database"
+	"github.com/zoundwavedj/cybersecurity/utils"
 )
 
 type getUserResp struct {

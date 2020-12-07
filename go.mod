@@ -1,4 +1,4 @@
-module github.com/zoundwave/cybersecurity
+module github.com/zoundwavedj/cybersecurity
 
 go 1.15
 

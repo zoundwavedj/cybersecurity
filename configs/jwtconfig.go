@@ -7,7 +7,7 @@ import (
 
 	"github.com/dgrijalva/jwt-go"
 	"github.com/google/uuid"
-	"github.com/zoundwave/cybersecurity/database"
+	"github.com/zoundwavedj/cybersecurity/database"
 )
 
 // Claims type
